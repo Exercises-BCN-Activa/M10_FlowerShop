@@ -1,5 +1,7 @@
 package com.crud.controller;
 
+import java.util.List;
+
 import com.crud.domain.Business;
 import com.crud.persistence.BusinessRepository;
 
@@ -13,8 +15,9 @@ public final class BusinessController {
 		repository.addBusiness(BusinessFactory.createBusiness(name));
 	}
 	
-	public void showBusiness() {
+	public List<Business> showBusiness() {
 		repository.getAllBusiness().forEach(System.out::println);
+		return repository.getAllBusiness();
 	}
 	
 	private Business findBusiness(int id) {
