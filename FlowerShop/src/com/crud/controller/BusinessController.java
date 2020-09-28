@@ -1,5 +1,6 @@
 package com.crud.controller;
 
+import com.crud.domain.Business;
 import com.crud.persistence.BusinessRepository;
 
 public final class BusinessController {
@@ -8,24 +9,50 @@ public final class BusinessController {
 	
 	public BusinessController() {}
 	
-	public void createBusiness() {
-		
+	public void createBusiness(String name) {
+		repository.addBusiness(BusinessFactory.createBusiness(name));
 	}
 	
 	public void showBusiness() {
 		repository.getAllBusiness().forEach(System.out::println);
 	}
 	
-	public void createDecoration() {
-		
+	private Business findBusiness(int id) {
+		return repository.findBusiness(id);
+	}	
+	
+	private Business findBusiness(String name) {
+		return repository.findBusiness(name);
 	}
 	
-	public void createFlower() {
-		
+	public void createDecoration(String woodOrPlastic, double price, int id) {
+		Business store = findBusiness(id);
+		store.addStock(BusinessFactory.createDecoration(woodOrPlastic, price));
 	}
 	
-	public void createTree() {
-		
+	public void createDecoration(String woodOrPlastic, double price, String name) {
+		Business store = findBusiness(name);
+		store.addStock(BusinessFactory.createDecoration(woodOrPlastic, price));
+	}
+	
+	public void createFlower(String colour, double price, int id) {
+		Business store = findBusiness(id);
+		store.addStock(BusinessFactory.createFlower(colour, price));
+	}
+	
+	public void createFlower(String colour, double price, String name) {
+		Business store = findBusiness(name);
+		store.addStock(BusinessFactory.createFlower(colour, price));
+	}
+	
+	public void createTree(double height,double price, int id) {
+		Business store = findBusiness(id);
+		store.addStock(BusinessFactory.createTree(height, price));
+	}
+	
+	public void createTree(double height,double price, String name) {
+		Business store = findBusiness(name);
+		store.addStock(BusinessFactory.createTree(height, price));
 	}
 
 }

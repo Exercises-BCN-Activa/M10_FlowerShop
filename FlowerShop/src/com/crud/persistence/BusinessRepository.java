@@ -19,4 +19,26 @@ public final class BusinessRepository {
 	public void addBusiness(Business store) {
 		stores.add(store);
 	}
+
+	public Business findBusiness(int id) {
+		Business finded = null;
+		for (Business b : stores) {
+			if (b.getId()==id) {
+				finded = b;
+			}
+		}
+		return finded;
+	}	
+	
+	public Business findBusiness(String name) {
+		Business finded = null;
+		for (Business b : stores) {
+			if (b.getName().equalsIgnoreCase(name)) {
+				finded = b;
+			}
+		}
+		return finded;
+		
+	}
+	
 }
