@@ -2,19 +2,19 @@ package com.crud.domain;
 
 public class Decoration extends ObjectForSale {
 
-    private String woodOrPlastic;
-
-    public Decoration(String woodOrPlastic, double price){
-        super(price);
-        this.woodOrPlastic = woodOrPlastic;
+    private String material;
+    
+    public Decoration(String material, double price){
+    	super(price);
+    	this.material = material;
     }
 
 	public String getWoodOrPlastic() {
-		return woodOrPlastic;
+		return material;
 	}
 
-	public void setWoodOrPlastic(String woodOrPlastic) {
-		this.woodOrPlastic = woodOrPlastic;
+	public void setWoodOrPlastic(String material) {
+		this.material = material;
 	}
 
 	@Override
@@ -24,12 +24,11 @@ public class Decoration extends ObjectForSale {
 		builder.append("ID=");
 		builder.append(getId());
 		builder.append(", Material=");
-		builder.append(woodOrPlastic);
+		builder.append(material);
 		builder.append(", Price=");
 		builder.append(getPrice());
 		builder.append("]");
 		return builder.toString();
 	}
-    
     
 }

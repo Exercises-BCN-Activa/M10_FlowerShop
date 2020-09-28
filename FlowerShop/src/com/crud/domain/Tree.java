@@ -21,11 +21,11 @@ public class Tree extends ObjectForSale {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Tree [");
-		builder.append("ID()=");
+		builder.append("ID=");
 		builder.append(getId());
 		builder.append(", Height=");
 		builder.append(height);
-		builder.append(", Price()=");
+		builder.append(", Price=");
 		builder.append(getPrice());
 		builder.append("]");
 		return builder.toString();

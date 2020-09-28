@@ -21,11 +21,11 @@ public class Flower extends ObjectForSale{
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Flower [");
-		builder.append("ID()=");
+		builder.append("ID=");
 		builder.append(getId());
 		builder.append(", colour=");
 		builder.append(colour);
-		builder.append(", Price()=");
+		builder.append(", Price=");
 		builder.append(getPrice());
 		builder.append("]");
 		return builder.toString();

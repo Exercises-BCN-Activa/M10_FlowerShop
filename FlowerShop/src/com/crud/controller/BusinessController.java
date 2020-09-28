@@ -2,60 +2,49 @@ package com.crud.controller;
 
 import java.util.List;
 
-import com.crud.domain.Business;
-import com.crud.persistence.BusinessRepository;
-
 public final class BusinessController {
 	
-	private BusinessRepository repository = new BusinessRepository();
+
+	public enum Material {
+		Plastic, Wood;
+	}
 	
-	public BusinessController() {}
-	
+	public enum Colour {
+		Red, Green, Blue, Yellow;
+	}
+
+	private final StockManager manager;
+
+	public BusinessController() {
+		manager = new StockManager();
+	}
+
 	public void createBusiness(String name) {
-		repository.addBusiness(BusinessFactory.createBusiness(name));
+		manager.createBusiness(name);
 	}
-	
-	public List<Business> showBusiness() {
-		repository.getAllBusiness().forEach(System.out::println);
-		return repository.getAllBusiness();
+
+	public List<?> getAllBusiness() {
+		return manager.getAllBusiness();
 	}
-	
-	private Business findBusiness(int id) {
-		return repository.findBusiness(id);
-	}	
-	
-	private Business findBusiness(String name) {
-		return repository.findBusiness(name);
+
+	public Object getStore(String idORname) {
+		return manager.findBusiness(idORname);
 	}
-	
-	public void createDecoration(String woodOrPlastic, double price, int id) {
-		Business store = findBusiness(id);
-		store.addStock(BusinessFactory.createDecoration(woodOrPlastic, price));
+
+	public void createDecoration(Material material, double price, String Store) {
+		manager.createDecoration(material.toString(), price, Store);
 	}
-	
-	public void createDecoration(String woodOrPlastic, double price, String name) {
-		Business store = findBusiness(name);
-		store.addStock(BusinessFactory.createDecoration(woodOrPlastic, price));
+
+	public void createFlower(Colour colour, double price, String Store) {
+		manager.createFlower(colour.toString(), price, Store);
 	}
-	
-	public void createFlower(String colour, double price, int id) {
-		Business store = findBusiness(id);
-		store.addStock(BusinessFactory.createFlower(colour, price));
+
+	public void createTree(double height, double price, String Store) {
+		manager.createTree(height, price, Store);
 	}
-	
-	public void createFlower(String colour, double price, String name) {
-		Business store = findBusiness(name);
-		store.addStock(BusinessFactory.createFlower(colour, price));
-	}
-	
-	public void createTree(double height,double price, int id) {
-		Business store = findBusiness(id);
-		store.addStock(BusinessFactory.createTree(height, price));
-	}
-	
-	public void createTree(double height,double price, String name) {
-		Business store = findBusiness(name);
-		store.addStock(BusinessFactory.createTree(height, price));
+
+	public void showStock(String Store) {
+		manager.showStock(Store);
 	}
 
 }
