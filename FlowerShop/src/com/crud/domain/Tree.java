@@ -1,4 +1,4 @@
-package com.floristeria.domain;
+package com.crud.domain;
 
 public class Tree extends ObjectForSale {
 
