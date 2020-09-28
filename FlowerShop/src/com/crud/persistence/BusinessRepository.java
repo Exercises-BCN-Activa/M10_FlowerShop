@@ -12,7 +12,11 @@ public final class BusinessRepository {
 		
 	}
 	
-	public List<Business> getAllUsers(){
+	public List<Business> getAllBusiness(){
 		return stores;
+	}
+	
+	public void addBusiness(Business store) {
+		stores.add(store);
 	}
 }
