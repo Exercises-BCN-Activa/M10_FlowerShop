@@ -2,23 +2,26 @@ package com.crud.domain;
 
 public abstract class ObjectForSale {
 
-    double price;
+    private double price;
     private int id;
-    int counter = 0;
+    private static int counterId = 1;
 
     public ObjectForSale(double price){
         this.price = price;
-        this.idMaker();
+        id = counterId;
+        ObjectForSale.counterId++;
     }
-
-    private void idMaker(){
-        this.counter += 1;
-        this.id = this.counter;
-
+    
+    public int getId() {
+    	return id;
     }
 
     public double getPrice(){
-        return this.price;
+        return price;
+    }
+    
+    public void setPrice(double price) {
+    	this.price = price;
     }
 
 }

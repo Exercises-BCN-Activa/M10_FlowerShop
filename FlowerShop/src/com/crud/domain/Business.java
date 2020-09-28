@@ -8,12 +8,12 @@ public class Business {
     private String name;
     private List<ObjectForSale> stock = new ArrayList<>();
     private int id;
-    private int counterId = 1;
+    private static int counterId = 1;
     
     public Business(String name){
         this.name = name;
         id = counterId;
-        counterId++;
+        Business.counterId++;
     }
     
     public int getId() {
