@@ -5,40 +5,32 @@ import com.crud.domain.Business;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * class that stores the shops created for selling flowers
+ * @author FaunoGuazina & pierorepp90
+ *
+ */
 public final class BusinessRepository {
-	private static List<Business> stores = new ArrayList<>();
-	
-	public BusinessRepository(){
-		
-	}
-	
-	public List<Business> getAllBusiness(){
-		return stores;
-	}
-	
-	public void addBusiness(Business store) {
-		stores.add(store);
+
+	private static List<Business> stores;
+
+	//Constructor
+	public BusinessRepository() {
+		stores = new ArrayList<>();
 	}
 
-	public Business findBusiness(int id) {
-		Business finded = null;
-		for (Business b : stores) {
-			if (b.getId()==id) {
-				finded = b;
-			}
-		}
-		return finded;
-	}	
-	
-	public Business findBusiness(String name) {
-		Business finded = null;
-		for (Business b : stores) {
-			if (b.getName().equalsIgnoreCase(name)) {
-				finded = b;
-			}
-		}
-		return finded;
-		
+	//Getter
+	public List<Business> getAllBusiness() {
+		return new ArrayList<>(stores);
 	}
-	
+
+	//method that adds a store to the database
+	public void addBusiness(Business store) {
+		if (store != null) {
+			stores.add(store);
+		} else {
+			System.out.println("Store cannot be created!");
+		}
+	}
+
 }

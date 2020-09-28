@@ -1,17 +1,29 @@
 package com.crud.domain;
 
+/**
+ * basic abstract class that acts as an umbrella for products.
+ * consists of integer id and double price.
+ * @author FaunoGuazina & pierorepp90
+ *
+ */
 public abstract class ObjectForSale {
 
     private double price;
     private int id;
     private static int counterId = 1;
 
+    /**
+     * only constructor:
+     * has id assignment mechanism.
+     * @param price double value
+     */
     public ObjectForSale(double price){
         this.price = price;
         id = counterId;
         ObjectForSale.counterId++;
     }
     
+    //Getters and Setter
     public int getId() {
     	return id;
     }
