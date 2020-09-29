@@ -5,7 +5,7 @@ import com.crud.controller.BusinessController;
 import com.crud.controller.BusinessController.Color;
 import com.crud.controller.BusinessController.Material;
 
-@SuppressWarnings("unused")
+@SuppressWarnings("unused") // for console tests
 public abstract class MainApp {
 
 	public static void main(String[] args) {

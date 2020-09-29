@@ -145,11 +145,11 @@ public class Window extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == addFlower) {
 			String flowerNameString = Inputs.toTitleCase(flowerName.getText()); 
-
+			String flowerColourString = Inputs.toTitleCase(flowerColour.getText()); 
 			double flowerPriceDouble = Inputs.toDouble(flowerPrice.getText());
 
-			if (Inputs.validColor(flowerNameString) && flowerPriceDouble >= 0) {
-				bC.createFlower(flowerNameString, Inputs.toColor(flowerNameString), flowerPriceDouble, businessName.getText());
+			if (Inputs.validColor(flowerColourString) && flowerPriceDouble >= 0) {
+				bC.createFlower(flowerNameString, Inputs.toColor(flowerColourString), flowerPriceDouble, businessName.getText());
 			} else {
 				System.out.println("Available colours are Red, Green, Blue, Yellow");
 			}
@@ -160,10 +160,11 @@ public class Window extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == addDeco) {
 			String decoNameString = Inputs.toTitleCase(decoName.getText()); 
+			String decoTypeString = Inputs.toTitleCase(decoType.getText());
 			double decoPriceDouble = Inputs.toDouble(decoPrice.getText());
 
-			if (Inputs.validMaterial(decoNameString) && decoPriceDouble >= 0) {
-				bC.createDecoration(decoNameString, BusinessController.Material.Wood, decoPriceDouble, businessName.getText());
+			if (Inputs.validMaterial(decoTypeString) && decoPriceDouble >= 0) {
+				bC.createDecoration(decoNameString, Inputs.toMaterial(decoTypeString), decoPriceDouble, businessName.getText());
 			} else {
 				System.out.println("Decoration type must be Wood or Plastic");
 			}
