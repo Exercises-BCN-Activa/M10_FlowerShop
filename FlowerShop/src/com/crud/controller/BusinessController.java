@@ -53,8 +53,8 @@ public final class BusinessController {
 	 * @param price double value
 	 * @param Store string of store name or code id
 	 */
-	public void createDecoration(Material material, double price, String Store) {
-		manager.createDecoration(material.toString(), price, Store);
+	public void createDecoration(String name, Material material, double price, String Store) {
+		manager.createDecoration(name, material.toString(), price, Store);
 	}
 
 	/**
@@ -63,8 +63,8 @@ public final class BusinessController {
 	 * @param price double value
 	 * @param Store string of store name or code id
 	 */
-	public void createFlower(Color colour, double price, String Store) {
-		manager.createFlower(colour.toString(), price, Store);
+	public void createFlower(String name, Color colour, double price, String Store) {
+		manager.createFlower(name, colour.toString(), price, Store);
 	}
 
 	/**
@@ -73,8 +73,8 @@ public final class BusinessController {
 	 * @param price double value
 	 * @param Store string of store name or code id
 	 */
-	public void createTree(double height, double price, String Store) {
-		manager.createTree(height, price, Store);
+	public void createTree(String name, double height, double price, String Store) {
+		manager.createTree(name, height, price, Store);
 	}
 
 	/**

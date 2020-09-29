@@ -16,8 +16,8 @@ public class Tree extends ObjectForSale {
      * @param height double value
      * @param price double value (super constructor)
      */
-    public Tree(double height,double price){
-        super(price);
+    public Tree(String name, double height,double price){
+        super(name, price);
         this.height = height;
     }
     

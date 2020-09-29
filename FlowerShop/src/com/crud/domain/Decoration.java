@@ -16,8 +16,8 @@ public class Decoration extends ObjectForSale {
      * @param material string
      * @param price double value (super constructor)
      */
-    public Decoration(String material, double price){
-    	super(price);
+    public Decoration(String name, String material, double price){
+    	super(name, price);
     	this.material = material;
     }
 

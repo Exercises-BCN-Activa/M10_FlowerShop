@@ -16,8 +16,8 @@ public class Flower extends ObjectForSale{
      * @param colour string
      * @param price double value (super constructor)
      */
-    public Flower(String colour, double price){
-        super(price);
+    public Flower(String name, String colour, double price){
+        super(name, price);
         this.color = colour;
     }
 
