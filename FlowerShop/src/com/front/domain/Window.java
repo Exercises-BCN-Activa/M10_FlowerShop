@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import com.crud.controller.BusinessController;
+import com.front.utilities.Inputs;
 
 /**
  * @author FaunoGuazina & pierorepp90
@@ -124,33 +125,31 @@ public class Window extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource() == createFlowerShop) {
-			bC.createBusiness(businessName.getText());
+			bC.createBusiness(Inputs.toTitleCase(businessName.getText()));
 
 		}
 		if (e.getSource() == addTree) {
-			String treeNameString = treeName.getText(); // Future implementation,now useless
-			double treeHeightDouble = Double.parseDouble(treeHeight.getText());
-			double treePriceDouble = Double.parseDouble(treePrice.getText());
-
-			bC.createTree(treeHeightDouble, treePriceDouble, businessName.getText());
+			String treeNameString = Inputs.toTitleCase(treeName.getText()); 
+			double treeHeightDouble = Inputs.toDouble(treeHeight.getText());
+			double treePriceDouble = Inputs.toDouble(treePrice.getText());
+			
+			if(treeHeightDouble >= 0 && treePriceDouble >= 0) {
+				bC.createTree(treeNameString, treeHeightDouble, treePriceDouble, businessName.getText());
+			} else {
+				System.out.println("Height and value must be numeric characters,\ndecimal separator must be a dot not a comma!");
+			}
 
 			treeHeight.setText("");
 			treeName.setText("");
 			treePrice.setText("");
 		}
 		if (e.getSource() == addFlower) {
-			String flowerNameString = flowerName.getText(); // Future implementation,now useless
+			String flowerNameString = Inputs.toTitleCase(flowerName.getText()); 
 
-			double flowerPriceDouble = Double.parseDouble(flowerPrice.getText());
+			double flowerPriceDouble = Inputs.toDouble(flowerPrice.getText());
 
-			if (flowerColour.getText().equalsIgnoreCase("red")) {
-				bC.createFlower(BusinessController.Color.Red, flowerPriceDouble, businessName.getText());
-			} else if (flowerColour.getText().equalsIgnoreCase("green")) {
-				bC.createFlower(BusinessController.Color.Green, flowerPriceDouble, businessName.getText());
-			} else if (flowerColour.getText().equalsIgnoreCase("blue")) {
-				bC.createFlower(BusinessController.Color.Blue, flowerPriceDouble, businessName.getText());
-			} else if (flowerColour.getText().equalsIgnoreCase("yellow")) {
-				bC.createFlower(BusinessController.Color.Yellow, flowerPriceDouble, businessName.getText());
+			if (Inputs.validColor(flowerNameString) && flowerPriceDouble >= 0) {
+				bC.createFlower(flowerNameString, Inputs.toColor(flowerNameString), flowerPriceDouble, businessName.getText());
 			} else {
 				System.out.println("Available colours are Red, Green, Blue, Yellow");
 			}
@@ -160,13 +159,11 @@ public class Window extends JFrame implements ActionListener {
 			flowerColour.setText("");
 		}
 		if (e.getSource() == addDeco) {
-			String decoNameString = decoName.getText(); // Future implementation,now useless
-			double decoPriceDouble = Double.parseDouble(decoPrice.getText());
+			String decoNameString = Inputs.toTitleCase(decoName.getText()); 
+			double decoPriceDouble = Inputs.toDouble(decoPrice.getText());
 
-			if (decoType.getText().equalsIgnoreCase("wood")) {
-				bC.createDecoration(BusinessController.Material.Wood, decoPriceDouble, businessName.getText());
-			} else if (decoType.getText().equalsIgnoreCase("plastic")) {
-				bC.createDecoration(BusinessController.Material.Plastic, decoPriceDouble, businessName.getText());
+			if (Inputs.validMaterial(decoNameString) && decoPriceDouble >= 0) {
+				bC.createDecoration(decoNameString, BusinessController.Material.Wood, decoPriceDouble, businessName.getText());
 			} else {
 				System.out.println("Decoration type must be Wood or Plastic");
 			}
@@ -177,7 +174,7 @@ public class Window extends JFrame implements ActionListener {
 
 		}
 		if (e.getSource() == showStock) {
-			bC.showStock(businessName.getText());
+			bC.showStock(Inputs.toTitleCase(businessName.getText()));
 		}
 	}
 }

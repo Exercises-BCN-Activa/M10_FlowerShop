@@ -32,7 +32,7 @@ public class Flower extends ObjectForSale{
 
 	@Override
 	public String toString() {
-		return "Flower [" + "ID=" + getId() + ", colour=" + color + ", Price=" + getPrice() + "]";
+		return "Flower [" + "ID=" + getId() + ", Name=" + getName() + ", colour=" + color + ", Price=" + getPrice() + "]";
 	}
     
 }

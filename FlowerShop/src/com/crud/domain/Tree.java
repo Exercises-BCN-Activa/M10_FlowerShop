@@ -32,7 +32,7 @@ public class Tree extends ObjectForSale {
 
 	@Override
 	public String toString() {
-		return "Tree [" + "ID=" + getId() + ", Height=" + height + ", Price=" + getPrice() + "]";
+		return "Tree [" + "ID=" + getId() + ", Name=" + getName() + ", Height=" + height + ", Price=" + getPrice() + "]";
 	}
     
 }

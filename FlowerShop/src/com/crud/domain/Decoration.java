@@ -32,7 +32,7 @@ public class Decoration extends ObjectForSale {
 
 	@Override
 	public String toString() {
-		return "Decoration [" + "ID=" + getId() + ", Material=" + material + ", Price=" + getPrice() + "]";
+		return "Decoration [" + "ID=" + getId() + ", Name=" + getName() + ", Material=" + material + ", Price=" + getPrice() + "]";
 	}
     
 }
