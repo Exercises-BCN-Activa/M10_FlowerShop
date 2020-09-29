@@ -150,8 +150,11 @@ public class Window extends JFrame implements ActionListener {
 
 			if (Inputs.validColor(flowerColourString) && flowerPriceDouble >= 0) {
 				bC.createFlower(flowerNameString, Inputs.toColor(flowerColourString), flowerPriceDouble, businessName.getText());
-			} else {
+			} else if(!(Inputs.validColor(flowerColourString)) && flowerPriceDouble >= 0){
 				System.out.println("Available colours are Red, Green, Blue, Yellow");
+			}else{
+				System.out.println("The price value must be numeric characters,\n" +
+						"decimal separator must be a dot not a comma!");
 			}
 
 			flowerName.setText("");
@@ -165,8 +168,11 @@ public class Window extends JFrame implements ActionListener {
 
 			if (Inputs.validMaterial(decoTypeString) && decoPriceDouble >= 0) {
 				bC.createDecoration(decoNameString, Inputs.toMaterial(decoTypeString), decoPriceDouble, businessName.getText());
-			} else {
+			} else if(!(Inputs.validMaterial(decoNameString)) && decoPriceDouble >= 0){
 				System.out.println("Decoration type must be Wood or Plastic");
+			}else{
+				System.out.println("The price value must be numeric characters,\n" +
+						"decimal separator must be a dot not a comma!");
 			}
 
 			decoType.setText("");
