@@ -1,16 +1,17 @@
 package com.front.domain;
+import com.crud.controller.BusinessController;
 
-import com.crud.controller.*;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.InputMismatchException;
+
+import javax.swing.*;
 
 public class Window extends JFrame implements ActionListener {
 
     private JLabel stock;
     private JButton createFlowerShop, addTree, addFlower, addDeco,showStock;
-    static JTextField flowerName,flowerColour,flowerPrice,treeName,treeHeight,treePrice,
+    static JTextField flowerName, flowerColour,flowerPrice,treeName,treeHeight,treePrice,
             decoName,decoType,decoPrice,businessName;
     public Window() {
         super();
@@ -111,38 +112,52 @@ public class Window extends JFrame implements ActionListener {
 
         }
         if (e.getSource()==addTree) {
-            String treeNameString = treeName.getText();
-            treeName.setText("");
+            String treeNameString = treeName.getText();          //Future implementation,now useless
             double treeHeightDouble = Double.parseDouble(treeHeight.getText());
-            treeHeight.setText("");
             double treePriceDouble = Double.parseDouble(treePrice.getText());
-            treePrice.setText("");
+
             bC.createTree(treeHeightDouble,treePriceDouble,businessName.getText());
 
+            treeHeight.setText("");
+            treeName.setText("");
+            treePrice.setText("");
         }
         if (e.getSource()==addFlower) {
-            String flowerNameString = flowerName.getText();
-            flowerName.setText("");
-            String flowerColourString = flowerColour.getText();
-            flowerColour.setText("");
+            String flowerNameString = flowerName.getText();    //Future implementation,now useless
+
             double flowerPriceDouble = Double.parseDouble(flowerPrice.getText());
+
+            if(flowerColour.getText().equalsIgnoreCase("red")){
+                bC.createFlower(BusinessController.Color.Red, flowerPriceDouble,businessName.getText());
+            }else if(flowerColour.getText().equalsIgnoreCase("green")){
+                bC.createFlower(BusinessController.Color.Green, flowerPriceDouble,businessName.getText());
+            }else if(flowerColour.getText().equalsIgnoreCase("blue")){
+                bC.createFlower(BusinessController.Color.Blue, flowerPriceDouble,businessName.getText());
+            }else if(flowerColour.getText().equalsIgnoreCase("yellow")){
+                bC.createFlower(BusinessController.Color.Yellow, flowerPriceDouble,businessName.getText());
+            }else{
+                System.out.println("Available colours are Red, Green, Blue, Yellow");
+            }
+
+            flowerName.setText("");
             flowerPrice.setText("");
-
-
+            flowerColour.setText("");
         }
         if (e.getSource()==addDeco) {
-            String decoNameString = decoName.getText();
-            decoName.setText("");
+            String decoNameString = decoName.getText();        //Future implementation,now useless
             double decoPriceDouble = Double.parseDouble(decoPrice.getText());
-            decoPrice.setText("");
+
             if(decoType.getText().equalsIgnoreCase("wood")){
                 bC.createDecoration(BusinessController.Material.Wood, decoPriceDouble,businessName.getText());
             }else if(decoType.getText().equalsIgnoreCase("plastic")){
-                bC.createDecoration("Plastic", decoPriceDouble,businessName.getText());
+                bC.createDecoration(BusinessController.Material.Plastic, decoPriceDouble,businessName.getText());
             }else{
                 System.out.println("Decoration type must be Wood or Plastic");
             }
+
             decoType.setText("");
+            decoName.setText("");
+            decoPrice.setText("");
 
 
         }
