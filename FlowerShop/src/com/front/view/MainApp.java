@@ -1,6 +1,6 @@
-package com.crud.view;
+package com.front.view;
 
-import com.crud.domain.Window;
+import com.front.domain.Window;
 
 public abstract class MainApp {
 

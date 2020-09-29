@@ -32,16 +32,15 @@ public class Tree extends ObjectForSale {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Tree [");
-		builder.append("ID=");
-		builder.append(getId());
-		builder.append(", Height=");
-		builder.append(height);
-		builder.append(", Price=");
-		builder.append(getPrice());
-		builder.append("]");
-		return builder.toString();
+		String builder = "Tree [" +
+				"ID=" +
+				super.getId() +
+				", Height=" +
+				height +
+				", Price=" +
+				super.getPrice() +
+				"]";
+		return builder;
 	}
     
 }
