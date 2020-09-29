@@ -19,6 +19,7 @@ public abstract class ObjectForSale {
      * @param price double value
      */
     public ObjectForSale(String name, double price){
+        this.name = name;
         this.price = price;
         id = counterId;
         ObjectForSale.counterId++;
