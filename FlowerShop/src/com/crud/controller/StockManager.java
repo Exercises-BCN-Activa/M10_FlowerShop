@@ -46,7 +46,7 @@ final class StockManager {
 	
 	/**
 	 * method used to select a particular store from the database
-	 * @param store string of shop name or code id
+	 * @param Store string of shop name or code id
 	 * @return Business object
 	 */
 	Business findBusiness(String Store) {
@@ -69,10 +69,10 @@ final class StockManager {
 	 * @param price double value
 	 * @param Store string of store name or code id
 	 */
-	void createDecoration(String material, double price, String Store) {
+	void createDecoration(String name, String material, double price, String Store) {
 		Business store = findBusiness(Store);
 		if (store != null) {
-			store.addStock(Factory.createDecoration(material, price));
+			store.addStock(Factory.createDecoration(name, material, price));
 		}
 	}
 
@@ -82,10 +82,10 @@ final class StockManager {
 	 * @param price double value
 	 * @param Store string of store name or code id
 	 */
-	void createFlower(String color, double price, String Store) {
+	void createFlower(String name, String color, double price, String Store) {
 		Business store = findBusiness(Store);
 		if (store != null) {
-			store.addStock(Factory.createFlower(color, price));
+			store.addStock(Factory.createFlower(name, color, price));
 		}
 	}
 
@@ -95,10 +95,10 @@ final class StockManager {
 	 * @param price double value
 	 * @param Store string of store name or code id
 	 */
-	void createTree(double height, double price, String Store) {
+	void createTree(String name, double height, double price, String Store) {
 		Business store = findBusiness(Store);
 		if (store != null) {
-			store.addStock(Factory.createTree(height, price));
+			store.addStock(Factory.createTree(name, height, price));
 		}
 	}
 
@@ -113,11 +113,11 @@ final class StockManager {
 			System.out.println("\n=================================================\n");//header printing
 			
 			System.out.println("Stock of " + store.getName() + 							//header printing
-					" | Total amount Itens: " + store.getStock().size());
+					" | Total amount Items: " + store.getStock().size());
 			
-			printTypeStock("Decoration", store, new Decoration("", 0));					//product stock printing decoration
-			printTypeStock("Flowers", store, new Flower("", 0));						//product stock printing flowers
-			printTypeStock("Tree", store, new Tree(0, 0));								//product stock printing trees
+			printTypeStock("Decoration", store, new Decoration("", "", 0));					//product stock printing decoration
+			printTypeStock("Flowers", store, new Flower("", "", 0));						//product stock printing flowers
+			printTypeStock("Tree", store, new Tree("", 0, 0));								//product stock printing trees
 			
 			System.out.println("\n=================================================\n");//footer printing
 		}
@@ -133,7 +133,7 @@ final class StockManager {
 		List<ObjectForSale> stock = store.getStock().stream()				//list from the store object stream
 				.filter(x -> x.getClass().equals(item.getClass()))			//stock filtering from the item class
 				.collect(Collectors.toList());								//string to list conversion
-		System.out.println("\n" + type + ": " + stock.size() + " itens");	//header print
+		System.out.println("\n" + type + ": " + stock.size() + " items");	//header print
 		stock.forEach(System.out::println);									//stock print
 	}
 
@@ -149,16 +149,16 @@ final class StockManager {
 			return new Business(name);
 		}
 
-		static Decoration createDecoration(String material, double price) {
-			return new Decoration(material, price);
+		static Decoration createDecoration(String name, String material, double price) {
+			return new Decoration(name, material, price);
 		}
 
-		static Flower createFlower(String colour, double price) {
-			return new Flower(colour, price);
+		static Flower createFlower(String name, String colour, double price) {
+			return new Flower(name, colour, price);
 		}
 
-		static Tree createTree(double height, double price) {
-			return new Tree(height, price);
+		static Tree createTree(String name, double height, double price) {
+			return new Tree(name, height, price);
 		}
 	}
 

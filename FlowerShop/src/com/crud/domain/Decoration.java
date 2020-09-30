@@ -16,8 +16,8 @@ public class Decoration extends ObjectForSale {
      * @param material string
      * @param price double value (super constructor)
      */
-    public Decoration(String material, double price){
-    	super(price);
+    public Decoration(String name, String material, double price){
+    	super(name, price);
     	this.material = material;
     }
 
@@ -32,16 +32,7 @@ public class Decoration extends ObjectForSale {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Decoration [");
-		builder.append("ID=");
-		builder.append(getId());
-		builder.append(", Material=");
-		builder.append(material);
-		builder.append(", Price=");
-		builder.append(getPrice());
-		builder.append("]");
-		return builder.toString();
+		return "Decoration [" + "ID=" + getId() + ", Name=" + getName() + ", Material=" + material + ", Price=" + getPrice() + "]";
 	}
     
 }

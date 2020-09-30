@@ -16,8 +16,8 @@ public class Tree extends ObjectForSale {
      * @param height double value
      * @param price double value (super constructor)
      */
-    public Tree(double height,double price){
-        super(price);
+    public Tree(String name, double height,double price){
+        super(name, price);
         this.height = height;
     }
     
@@ -32,16 +32,7 @@ public class Tree extends ObjectForSale {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Tree [");
-		builder.append("ID=");
-		builder.append(getId());
-		builder.append(", Height=");
-		builder.append(height);
-		builder.append(", Price=");
-		builder.append(getPrice());
-		builder.append("]");
-		return builder.toString();
+		return "Tree [" + "ID=" + getId() + ", Name=" + getName() + ", Height=" + height + ", Price=" + getPrice() + "]";
 	}
     
 }

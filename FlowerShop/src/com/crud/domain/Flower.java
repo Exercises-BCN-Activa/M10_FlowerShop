@@ -16,8 +16,8 @@ public class Flower extends ObjectForSale{
      * @param colour string
      * @param price double value (super constructor)
      */
-    public Flower(String colour, double price){
-        super(price);
+    public Flower(String name, String colour, double price){
+        super(name, price);
         this.color = colour;
     }
 
@@ -32,16 +32,7 @@ public class Flower extends ObjectForSale{
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Flower [");
-		builder.append("ID=");
-		builder.append(getId());
-		builder.append(", colour=");
-		builder.append(color);
-		builder.append(", Price=");
-		builder.append(getPrice());
-		builder.append("]");
-		return builder.toString();
+		return "Flower [" + "ID=" + getId() + ", Name=" + getName() + ", colour=" + color + ", Price=" + getPrice() + "]";
 	}
     
 }
