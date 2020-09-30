@@ -17,6 +17,7 @@ public abstract class ObjectForSale {
      * only constructor:
      * has id assignment mechanism.
      * @param price double value
+     * @param name string value
      */
     public ObjectForSale(String name, double price){
         this.name = name;

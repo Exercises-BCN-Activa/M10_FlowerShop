@@ -9,6 +9,9 @@ import com.crud.controller.BusinessController;
 import com.front.utilities.Inputs;
 
 /**
+ * class Window that extends class JFrame and implements
+ * ActionListener interface.
+ * defines the interaction with the user.
  * @author FaunoGuazina & pierorepp90
  *
  */
@@ -22,7 +25,8 @@ public class Window extends JFrame implements ActionListener {
 			decoPrice, businessName;
 
 	/**
-	 * 
+	 * only constructor.
+	 * take no parameter.
 	 */
 	public Window() {
 		super();
@@ -32,7 +36,7 @@ public class Window extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * 
+	 * method that configures the interface.
 	 */
 	private void configureWindow() {
 		this.setTitle("Flower Business");
@@ -44,7 +48,9 @@ public class Window extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * 
+	 * method to initialize all the
+	 * components,gives them location, size
+	 * and add to the interface.
 	 */
 	private void initializeComponents() {
 
@@ -119,7 +125,9 @@ public class Window extends JFrame implements ActionListener {
 	}
 
 	/**
-	 *
+	 *method that performs different actions
+	 * based on the user clicks and data entries.
+	 * @param e ActionEvent.
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -134,52 +142,59 @@ public class Window extends JFrame implements ActionListener {
 			double treePriceDouble = Inputs.toDouble(treePrice.getText());
 			
 			if(treeHeightDouble >= 0 && treePriceDouble >= 0) {
-				bC.createTree(treeNameString, treeHeightDouble, treePriceDouble, businessName.getText());
+				bC.createTree(treeNameString, treeHeightDouble, treePriceDouble,
+						businessName.getText());
+				treeHeight.setText("");
+				treeName.setText("");
+				treePrice.setText("");
 			} else {
 				System.out.println("Height and value must be numeric characters,\ndecimal separator must be a dot not a comma!");
 			}
-
-			treeHeight.setText("");
-			treeName.setText("");
-			treePrice.setText("");
 		}
+
 		if (e.getSource() == addFlower) {
 			String flowerNameString = Inputs.toTitleCase(flowerName.getText()); 
 			String flowerColourString = Inputs.toTitleCase(flowerColour.getText()); 
 			double flowerPriceDouble = Inputs.toDouble(flowerPrice.getText());
 
 			if (Inputs.validColor(flowerColourString) && flowerPriceDouble >= 0) {
-				bC.createFlower(flowerNameString, Inputs.toColor(flowerColourString), flowerPriceDouble, businessName.getText());
+				bC.createFlower(flowerNameString, Inputs.toColor(flowerColourString),
+						flowerPriceDouble, businessName.getText());
+				flowerName.setText("");
+				flowerPrice.setText("");
+				flowerColour.setText("");
 			} else if(!(Inputs.validColor(flowerColourString)) && flowerPriceDouble >= 0){
 				System.out.println("Available colours are Red, Green, Blue, Yellow");
+				flowerColour.setText("");
 			}else{
 				System.out.println("The price value must be numeric characters,\n" +
 						"decimal separator must be a dot not a comma!");
+				flowerPrice.setText("");
 			}
-
-			flowerName.setText("");
-			flowerPrice.setText("");
-			flowerColour.setText("");
 		}
+
 		if (e.getSource() == addDeco) {
 			String decoNameString = Inputs.toTitleCase(decoName.getText()); 
 			String decoTypeString = Inputs.toTitleCase(decoType.getText());
 			double decoPriceDouble = Inputs.toDouble(decoPrice.getText());
 
 			if (Inputs.validMaterial(decoTypeString) && decoPriceDouble >= 0) {
-				bC.createDecoration(decoNameString, Inputs.toMaterial(decoTypeString), decoPriceDouble, businessName.getText());
+				bC.createDecoration(decoNameString, Inputs.toMaterial(decoTypeString), decoPriceDouble,
+						businessName.getText());
+				decoType.setText("");
+				decoName.setText("");
+				decoPrice.setText("");
 			} else if(!(Inputs.validMaterial(decoNameString)) && decoPriceDouble >= 0){
 				System.out.println("Decoration type must be Wood or Plastic");
+				decoType.setText("");
 			}else{
 				System.out.println("The price value must be numeric characters,\n" +
 						"decimal separator must be a dot not a comma!");
+				decoPrice.setText("");
 			}
 
-			decoType.setText("");
-			decoName.setText("");
-			decoPrice.setText("");
-
 		}
+
 		if (e.getSource() == showStock) {
 			bC.showStock(Inputs.toTitleCase(businessName.getText()));
 		}

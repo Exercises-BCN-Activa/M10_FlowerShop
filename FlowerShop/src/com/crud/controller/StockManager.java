@@ -46,7 +46,7 @@ final class StockManager {
 	
 	/**
 	 * method used to select a particular store from the database
-	 * @param store string of shop name or code id
+	 * @param Store string of shop name or code id
 	 * @return Business object
 	 */
 	Business findBusiness(String Store) {
@@ -113,7 +113,7 @@ final class StockManager {
 			System.out.println("\n=================================================\n");//header printing
 			
 			System.out.println("Stock of " + store.getName() + 							//header printing
-					" | Total amount Itens: " + store.getStock().size());
+					" | Total amount Items: " + store.getStock().size());
 			
 			printTypeStock("Decoration", store, new Decoration("", "", 0));					//product stock printing decoration
 			printTypeStock("Flowers", store, new Flower("", "", 0));						//product stock printing flowers
@@ -133,7 +133,7 @@ final class StockManager {
 		List<ObjectForSale> stock = store.getStock().stream()				//list from the store object stream
 				.filter(x -> x.getClass().equals(item.getClass()))			//stock filtering from the item class
 				.collect(Collectors.toList());								//string to list conversion
-		System.out.println("\n" + type + ": " + stock.size() + " itens");	//header print
+		System.out.println("\n" + type + ": " + stock.size() + " items");	//header print
 		stock.forEach(System.out::println);									//stock print
 	}
 
