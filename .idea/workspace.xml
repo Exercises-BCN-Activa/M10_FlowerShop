@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4a9078e-5ce4-46d7-86d3-a44c2b9c4e72" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerShop/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerShop/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerShop/src/com/crud/domain/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerShop/src/com/crud/domain/Tree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerShop/src/com/crud/domain/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerShop/src/com/front/domain/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerShop/src/com/crud/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerShop/src/com/front/view/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerShop/src/com/front/domain/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerShop/src/com/front/domain/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +37,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/GitProyects/M10_FlowerShop-backend1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">

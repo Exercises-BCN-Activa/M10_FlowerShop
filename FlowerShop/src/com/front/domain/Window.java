@@ -147,8 +147,16 @@ public class Window extends JFrame implements ActionListener {
 				treeHeight.setText("");
 				treeName.setText("");
 				treePrice.setText("");
-			} else {
-				System.out.println("Height and value must be numeric characters,\ndecimal separator must be a dot not a comma!");
+			} else if(treeHeightDouble <= 0 && treePriceDouble >= 0) {
+				System.out.println("Height must be numeric characters,\ndecimal separator must be a dot not a comma!");
+				treeHeight.setText("");
+			}else if(treeHeightDouble >= 0 && treePriceDouble <= 0){
+				System.out.println("Value must be numeric characters,\ndecimal separator must be a dot not a comma!");
+				treePrice.setText("");
+			}else{
+				System.out.println("Value and height must be numeric characters,\ndecimal separator must be a dot not a comma!");
+				treeHeight.setText("");
+				treePrice.setText("");
 			}
 		}
 
