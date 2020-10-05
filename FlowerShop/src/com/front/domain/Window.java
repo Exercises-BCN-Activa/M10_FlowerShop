@@ -18,8 +18,7 @@ import com.front.utilities.Inputs;
 public class Window extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private BusinessController bC = new BusinessController();
-	private JLabel stock;
+	private final BusinessController bC = new BusinessController();
 	private JButton createFlowerShop, addTree, addFlower, addDeco, showStock;
 	static JTextField flowerName, flowerColour, flowerPrice, treeName, treeHeight, treePrice, decoName, decoType,
 			decoPrice, businessName;
@@ -54,7 +53,7 @@ public class Window extends JFrame implements ActionListener {
 	 */
 	private void initializeComponents() {
 
-		stock = new JLabel("Flowers Shop");
+		JLabel stock = new JLabel("Flowers Shop(Currated Version)");
 		createFlowerShop = new JButton("Create Business");
 		addTree = new JButton("Tree");
 		addFlower = new JButton("Flower");
@@ -134,6 +133,7 @@ public class Window extends JFrame implements ActionListener {
 
 		if (e.getSource() == createFlowerShop) {
 			bC.createBusiness(Inputs.toTitleCase(businessName.getText()));
+			System.out.println("Business with name: " + businessName.getText() + " successfully created");
 
 		}
 		if (e.getSource() == addTree) {
@@ -147,6 +147,7 @@ public class Window extends JFrame implements ActionListener {
 				treeHeight.setText("");
 				treeName.setText("");
 				treePrice.setText("");
+				System.out.println("Tree added");
 			} else if(treeHeightDouble <= 0 && treePriceDouble >= 0) {
 				System.out.println("Height must be numeric characters,\ndecimal separator must be a dot not a comma!");
 				treeHeight.setText("");
@@ -171,6 +172,7 @@ public class Window extends JFrame implements ActionListener {
 				flowerName.setText("");
 				flowerPrice.setText("");
 				flowerColour.setText("");
+				System.out.println("Flower added");
 			} else if(!(Inputs.validColor(flowerColourString)) && flowerPriceDouble >= 0){
 				System.out.println("Available colours are Red, Green, Blue, Yellow");
 				flowerColour.setText("");
@@ -192,6 +194,7 @@ public class Window extends JFrame implements ActionListener {
 				decoType.setText("");
 				decoName.setText("");
 				decoPrice.setText("");
+				System.out.println("Decoration added");
 			} else if(!(Inputs.validMaterial(decoNameString)) && decoPriceDouble >= 0){
 				System.out.println("Decoration type must be Wood or Plastic");
 				decoType.setText("");

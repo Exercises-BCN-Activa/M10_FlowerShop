@@ -20,7 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4a9078e-5ce4-46d7-86d3-a44c2b9c4e72" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/FlowerShop/src/com/front/domain/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerShop/src/com/front/domain/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerShop/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerShop/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerShop/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerShop/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,13 +72,13 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="58" key="FileChooserDialogImpl" timestamp="1601374033261">
+    <state x="421" y="58" key="FileChooserDialogImpl" timestamp="1601886310012">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="58" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1601374033261" />
-    <state x="339" y="101" key="NewModule_or_Project.wizard" timestamp="1601372690870">
+    <state x="421" y="58" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1601886310012" />
+    <state x="339" y="101" key="NewModule_or_Project.wizard" timestamp="1601886320142">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="339" y="101" key="NewModule_or_Project.wizard/0.0.1280.680@0.0.1280.680" timestamp="1601372690870" />
+    <state x="339" y="101" key="NewModule_or_Project.wizard/0.0.1280.680@0.0.1280.680" timestamp="1601886320142" />
   </component>
 </project>
